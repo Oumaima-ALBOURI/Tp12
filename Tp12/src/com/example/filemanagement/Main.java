@@ -1,45 +1,46 @@
-package com.example.filemanagement;
+TP 12 : Gestion des fichiers en Java
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
+1. LECTURE AVEC BUFFEREDREADER
+Alice,25,Engineer
+Bob,30,Manager
+Charlie,28,Designer
 
-public class Main {
+2. ECRITURE AVEC BUFFEREDWRITER
+Ecriture réussie.
 
-    // Méthode pour récupérer les métadonnées d'un fichier
-    public static void getFileMetadata(String filePath) {
+3. ECRITURE AVEC PRINTWRITER
+Rapport créé avec succès.
 
-        try {
-            Path path = Paths.get(filePath);
+4. LECTURE AVEC FILES
+Alice,25,Engineer
+Bob,30,Manager
+Charlie,28,Designer
 
-            BasicFileAttributes attrs =
-                    Files.readAttributes(path, BasicFileAttributes.class);
+5. ECRITURE AVEC FILES
+Fichier écrit avec succès : data/nio_output.txt
 
-            System.out.println("=== Métadonnées du fichier : " + filePath + " ===");
+6. COPIE DE FICHIER
+Fichier copié avec succès.
 
-            System.out.println("Taille : " + attrs.size() + " octets");
+7. DEPLACEMENT DE FICHIER
+Fichier déplacé avec succès.
 
-            System.out.println("Dernière modification : "
-                    + attrs.lastModifiedTime().toInstant());
+8. SUPPRESSION DE FICHIER
+Fichier supprimé : data/moved_output.txt
 
-            System.out.println("Est un répertoire : " + attrs.isDirectory());
+9. LECTURE BINAIRE
+Fichier binaire lu : data/test.jpg
+Taille totale : 15240 octets
 
-            System.out.println("Est un fichier : " + attrs.isRegularFile());
+10. ECRITURE BINAIRE
+Fichier binaire écrit : data/copy_binary.bin
+Taille écrite : 15240 octets
 
-        } catch (IOException e) {
-            System.err.println(
-                    "Erreur lors de la récupération des métadonnées : "
-                    + e.getMessage());
-        }
-    }
+11. METADONNEES
+=== Métadonnées du fichier ===
+Taille : 48 octets
+Dernière modification : 2026-11-05T20:00:00Z
+Est un répertoire : false
+Est un fichier : true
 
-    public static void main(String[] args) {
-
-        String fichier =
-                "C:\\Users\\PC\\eclipse-workspace\\Tp12\\data\\employes.txt";
-
-        getFileMetadata(fichier);
-    }
-}
+===== FIN DU TP 12 =====
